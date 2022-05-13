@@ -1,11 +1,11 @@
-package com.commandiron.onboarding_presentation.gender
+package com.commandiron.onboarding_presentation.activity
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.commandiron.core.domain.model.Gender
+import com.commandiron.core.domain.model.ActivityLevel
 import com.commandiron.core.domain.preferences.Preferences
 import com.commandiron.core.navigation.Route
 import com.commandiron.core.util.UiEvent
@@ -16,24 +16,26 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class GenderViewModel @Inject constructor(
+class ActivityViewModel @Inject constructor(
     private val preferences: Preferences
 ): ViewModel()  {
 
-    var selectedGender by mutableStateOf<Gender>(Gender.Male)
+    var selectedActivityLevel by mutableStateOf<ActivityLevel>(
+        ActivityLevel.Medium
+    )
         private set
 
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
 
-    fun onGenderClick(gender: Gender){
-        selectedGender = gender
+    fun onActivityLevelSelect(activityLevel: ActivityLevel){
+        selectedActivityLevel = activityLevel
     }
 
     fun onNextClick(){
         viewModelScope.launch {
-            preferences.saveGender(selectedGender)
-            _uiEvent.send(UiEvent.Navigate(Route.AGE))
+            preferences.saveActivityLevel(selectedActivityLevel)
+            _uiEvent.send(UiEvent.Navigate(Route.GOAL))
         }
     }
 }

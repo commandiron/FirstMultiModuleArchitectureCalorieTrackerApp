@@ -1,4 +1,4 @@
-package com.commandiron.onboarding_presentation.age
+package com.commandiron.onboarding_presentation.height
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
@@ -19,10 +19,10 @@ import com.commandiron.onboarding_presentation.components.UnitTextField
 import kotlinx.coroutines.flow.collect
 
 @Composable
-fun AgeScreen(
+fun HeightScreen(
     scaffoldState: ScaffoldState,
     onNavigate: (UiEvent.Navigate) -> Unit,
-    viewModel: AgeViewModel = hiltViewModel()
+    viewModel: HeightViewModel = hiltViewModel()
 ){
     val spacing = LocalSpacing.current
     val context = LocalContext.current
@@ -50,14 +50,14 @@ fun AgeScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = stringResource(id = R.string.whats_your_age),
+                text = stringResource(id = R.string.whats_your_height),
                 style = MaterialTheme.typography.h3
             )
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
             UnitTextField(
-                value = viewModel.age,
-                onValueChange = viewModel::onAgeEnter,
-                unit = stringResource(id = R.string.years))
+                value = viewModel.height,
+                onValueChange = viewModel::onHeightEnter,
+                unit = stringResource(id = R.string.cm))
         }
         ActionButton(
             text = stringResource(id = R.string.next),
