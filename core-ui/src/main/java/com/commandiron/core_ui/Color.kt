@@ -1,4 +1,4 @@
-package com.commandiron.calorytrackerpl.ui.theme
+package com.commandiron.core_ui
 
 import androidx.compose.ui.graphics.Color
 

@@ -21,6 +21,7 @@ import com.commandiron.onboarding_presentation.height.HeightScreen
 import com.commandiron.onboarding_presentation.nutrient_goals.NutrientGoalScreen
 import com.commandiron.onboarding_presentation.weight.WeightScreen
 import com.commandiron.onboarding_presentation.welcome.WelcomeScreen
+import com.commandiron.tracker_presentation.tracker_overview.TrackerOverviewScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -76,7 +77,9 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable(Route.TRACKER_OVERVIEW){
-
+                            TrackerOverviewScreen(
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.SEARCH){
 

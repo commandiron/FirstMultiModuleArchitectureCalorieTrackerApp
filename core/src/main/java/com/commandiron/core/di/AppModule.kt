@@ -1,12 +1,11 @@
-package com.commandiron.calorytrackerpl.di
+package com.commandiron.core.di
 
 import android.app.Application
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
-import com.commandiron.core.domain.DefaultPreferences
+import com.commandiron.core.data.preferences.DefaultPreferences
 import com.commandiron.core.domain.preferences.Preferences
 import com.commandiron.core.domain.use_case.FilterOutDigits
-import com.commandiron.onboarding_domain.use_case.ValidateNutrients
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
