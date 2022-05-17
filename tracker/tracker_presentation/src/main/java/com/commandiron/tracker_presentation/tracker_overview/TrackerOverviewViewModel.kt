@@ -46,7 +46,7 @@ class TrackerOverviewViewModel @Inject constructor(
                             route = Route.SEARCH
                                     + "/${event.meal.mealType.name}"
                                     + "/${state.date.dayOfMonth}"
-                                    + "/${state.date.month}"
+                                    + "/${state.date.month.value}"
                                     + "/${state.date.year}"
                         )
                     )
