@@ -5,12 +5,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.commandiron.core.R
 import com.commandiron.core.domain.preferences.Preferences
 import com.commandiron.core.domain.use_case.FilterOutDigits
-import com.commandiron.core.navigation.Route
 import com.commandiron.core.util.UiEvent
-import com.commandiron.core.util.UiText
 import com.commandiron.onboarding_domain.use_case.ValidateNutrients
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
@@ -60,7 +57,7 @@ class NutrientGoalViewModel @Inject constructor(
                         preferences.saveProteinRatio(result.proteinRatio)
                         preferences.saveFatRatio(result.fatRatio)
                         viewModelScope.launch {
-                            _uiEvent.send(UiEvent.Navigate(Route.TRACKER_OVERVIEW))
+                            _uiEvent.send(UiEvent.Success)
                         }
                     }
                     is ValidateNutrients.Result.Error -> {
@@ -68,10 +65,6 @@ class NutrientGoalViewModel @Inject constructor(
                             _uiEvent.send(UiEvent.ShowSnackbar(result.message))
                         }
                     }
-                }
-                viewModelScope.launch {
-
-
                 }
             }
         }

@@ -1,4 +1,4 @@
-package com.commandiron.core.navigation
+package com.commandiron.calorytrackerpl.navigation
 
 object Route {
     const val WELCOME = "welcome"

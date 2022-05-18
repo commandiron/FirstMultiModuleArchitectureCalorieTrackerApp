@@ -28,7 +28,7 @@ import com.commandiron.tracker_domain.model.TrackedFood
 import com.commandiron.core.R
 import com.commandiron.tracker_presentation.components.NutrientInfo
 
-@OptIn(ExperimentalCoilApi::class)
+@ExperimentalCoilApi
 @Composable
 fun TrackedFoodItem(
     trackedFood: TrackedFood,

@@ -7,8 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.commandiron.core.R
 import com.commandiron.core.domain.preferences.Preferences
-import com.commandiron.core.domain.use_case.FilterOutDigits
-import com.commandiron.core.navigation.Route
 import com.commandiron.core.util.UiEvent
 import com.commandiron.core.util.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -46,7 +44,7 @@ class WeightViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveWeight(weightNumber)
-            _uiEvent.send(UiEvent.Navigate(Route.ACTIVITY))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

@@ -84,7 +84,7 @@ fun ExpandableMeal(
                         NutrientInfo(
                             name = stringResource(id = R.string.carbs),
                             amount = meal.carbs,
-                            unit = stringResource(id = R.string.grams   )
+                            unit = stringResource(id = R.string.grams)
                         )
                         Spacer(modifier = Modifier.width(spacing.spaceSmall))
                         NutrientInfo(

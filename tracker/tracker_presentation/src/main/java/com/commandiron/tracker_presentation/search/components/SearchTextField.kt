@@ -23,9 +23,11 @@ import androidx.compose.ui.focus.FocusState
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.commandiron.core.R
 import com.commandiron.core.util.UiText
@@ -45,7 +47,8 @@ fun SearchTextField(
     Box(
         modifier = modifier
     ) {
-        BasicTextField(value = text,
+        BasicTextField(
+            value = text,
             onValueChange = onValueChange,
             singleLine = true,
             keyboardActions = KeyboardActions(
@@ -55,7 +58,8 @@ fun SearchTextField(
                 }
             ),
             keyboardOptions = KeyboardOptions(
-                imeAction = ImeAction.Search
+                imeAction = ImeAction.Search,
+                keyboardType = KeyboardType.Text
             ),
             modifier = Modifier
                 .clip(RoundedCornerShape(5.dp))
@@ -69,6 +73,7 @@ fun SearchTextField(
                 .padding(spacing.spaceMedium)
                 .padding(end = spacing.spaceMedium)
                 .onFocusChanged { onFocusChange(it) }
+                .testTag("search_textfield")
         )
         if(shouldShowHint){
             Text(

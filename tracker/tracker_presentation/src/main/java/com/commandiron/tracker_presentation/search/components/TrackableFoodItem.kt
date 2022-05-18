@@ -24,16 +24,21 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.LastBaseline
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.commandiron.core.R
 import com.commandiron.core_ui.LocalSpacing
 import com.commandiron.tracker_presentation.components.NutrientInfo
 import com.commandiron.tracker_presentation.search.TrackableFoodUiState
 
+@ExperimentalCoilApi
 @Composable
 fun TrackableFoodItem(
     trackableFoodUiState: TrackableFoodUiState,
@@ -144,7 +149,8 @@ fun TrackableFoodItem(
                         keyboardOptions = KeyboardOptions(
                             imeAction = if(trackableFoodUiState.amount.isNotEmpty()){
                                 ImeAction.Done
-                            }else ImeAction.Default
+                            }else ImeAction.Default,
+                            keyboardType = KeyboardType.Number
                         ),
                         keyboardActions = KeyboardActions(
                             onDone = {
@@ -161,6 +167,9 @@ fun TrackableFoodItem(
                             )
                             .alignBy(LastBaseline)
                             .padding(spacing.spaceMedium)
+                            .semantics {
+                                contentDescription = "Amount"
+                            }
                     )
                     Spacer(modifier = Modifier.width(spacing.spaceExtraSmall))
                     Text(

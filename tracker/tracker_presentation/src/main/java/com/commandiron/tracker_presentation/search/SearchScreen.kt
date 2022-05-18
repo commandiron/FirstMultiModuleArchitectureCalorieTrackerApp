@@ -17,6 +17,7 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
+import coil.annotation.ExperimentalCoilApi
 import com.commandiron.core.R
 import com.commandiron.core.util.UiEvent
 import com.commandiron.core_ui.LocalSpacing
@@ -25,6 +26,7 @@ import com.commandiron.tracker_presentation.search.components.SearchTextField
 import com.commandiron.tracker_presentation.search.components.TrackableFoodItem
 import java.time.LocalDate
 
+@ExperimentalCoilApi
 @ExperimentalComposeUiApi
 @Composable
 fun SearchScreen(
@@ -72,7 +74,9 @@ fun SearchScreen(
             onValueChange = {
                 viewModel.onEvent(SearchEvent.OnQueryChange(it))
             },
+            shouldShowHint = state.isHintVisible,
             onSearch = {
+                keyboardController?.hide()
                 viewModel.onEvent(SearchEvent.OnSearch)
             },
             onFocusChange = {
@@ -100,6 +104,7 @@ fun SearchScreen(
                          )
                     },
                     onTrack = {
+                        keyboardController?.hide()
                         viewModel.onEvent(
                             SearchEvent.OnTrackFoodClick(
                                 trackableFood = food.food,
