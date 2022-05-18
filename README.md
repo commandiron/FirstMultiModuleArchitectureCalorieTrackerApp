@@ -3,4 +3,4 @@
 
 |Modularization|
 |--------------|
-|<img src="https://user-images.githubusercontent.com/50905347/168322405-fed235dc-228f-42b2-913d-74f7b0ec243e.png" width="427" height="400">|
+|<img src="https://user-images.githubusercontent.com/50905347/169169972-97b97944-47db-49a6-ae60-66d171dcf0dc.png" width="377" height="272">|
