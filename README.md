@@ -1,5 +1,5 @@
 # FirstMultiModuleArchitectureCalorieTrackerApp
- * My first Multi-Module Architecture App.
+ * My first Multi-Module Architecture App (course).
 
 |Overview|
 |--------------|
